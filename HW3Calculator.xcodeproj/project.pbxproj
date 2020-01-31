@@ -14,6 +14,9 @@
 		33F64B2E23E39BC600F4A4FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F64B2C23E39BC600F4A4FC /* LaunchScreen.storyboard */; };
 		33F64B3923E39BC600F4A4FC /* HW3CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F64B3823E39BC600F4A4FC /* HW3CalculatorTests.swift */; };
 		33F64B4423E39BC600F4A4FC /* HW3CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F64B4323E39BC600F4A4FC /* HW3CalculatorUITests.swift */; };
+		33F64B5223E3ACED00F4A4FC /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F64B5123E3ACED00F4A4FC /* DecimalMinusTextField.swift */; };
+		33F64B5323E3ACED00F4A4FC /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F64B5123E3ACED00F4A4FC /* DecimalMinusTextField.swift */; };
+		33F64B5423E3ACED00F4A4FC /* DecimalMinusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F64B5123E3ACED00F4A4FC /* DecimalMinusTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,7 @@
 		33F64B3F23E39BC600F4A4FC /* HW3CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HW3CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F64B4323E39BC600F4A4FC /* HW3CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HW3CalculatorUITests.swift; sourceTree = "<group>"; };
 		33F64B4523E39BC600F4A4FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33F64B5123E3ACED00F4A4FC /* DecimalMinusTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecimalMinusTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 			children = (
 				33F64B2323E39BC600F4A4FC /* AppDelegate.swift */,
 				33F64B2523E39BC600F4A4FC /* ViewController.swift */,
+				33F64B5123E3ACED00F4A4FC /* DecimalMinusTextField.swift */,
 				33F64B2723E39BC600F4A4FC /* Main.storyboard */,
 				33F64B2A23E39BC600F4A4FC /* Assets.xcassets */,
 				33F64B2C23E39BC600F4A4FC /* LaunchScreen.storyboard */,
@@ -256,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33F64B5223E3ACED00F4A4FC /* DecimalMinusTextField.swift in Sources */,
 				33F64B2623E39BC600F4A4FC /* ViewController.swift in Sources */,
 				33F64B2423E39BC600F4A4FC /* AppDelegate.swift in Sources */,
 			);
@@ -265,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33F64B5323E3ACED00F4A4FC /* DecimalMinusTextField.swift in Sources */,
 				33F64B3923E39BC600F4A4FC /* HW3CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33F64B5423E3ACED00F4A4FC /* DecimalMinusTextField.swift in Sources */,
 				33F64B4423E39BC600F4A4FC /* HW3CalculatorUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
