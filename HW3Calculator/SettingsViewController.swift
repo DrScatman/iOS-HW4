@@ -49,22 +49,6 @@ class SettingsViewController: UIViewController {
         picker.isHidden = false;
     }
     
-//    @IBAction func savePressed(_ sender: UIBarButtonItem) {
-//
-//        if let del = self.delegate {
-//            //            del.settingsChanged(distanceUnits: self.dUnits!, bearingUnits: self.bUnits!)
-//            switch(mode) {
-//            case .Length:
-//                del.settingsChanged(fromUnits: LengthUnit(rawValue: fromUnits.text!)!, toUnits: LengthUnit(rawValue: toUnits.text!)!)
-//            case .Volume:
-//                del.settingsChanged(fromUnits: VolumeUnit(rawValue: fromUnits.text!)!, toUnits: VolumeUnit(rawValue: toUnits.text!)!)
-//            }
-//        }
-//        //self.dismiss(animated: true, completion: nil)
-//        _ = self.navigationController?.popViewController(animated: true)
-//    }
-
-    
     @IBAction func onSavePressed(_ sender: Any) {
         if let d = delegate {
             d.settingsChangedLength(fromUnits: button1.currentTitle!, toUnits: button2.currentTitle!)
