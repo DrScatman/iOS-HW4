@@ -86,8 +86,9 @@ class ViewController: UIViewController, UITextFieldDelegate,
     
     @IBAction func onClearPressed(_ sender: Any)
     {
-            fromInput.text = ""
-            toOutput.text = ""
+        fromInput.text = ""
+        toOutput.text = ""
+        dismissKeyboard()
     }
     
     @objc func dismissKeyboard(){
@@ -143,6 +144,8 @@ class ViewController: UIViewController, UITextFieldDelegate,
             label2Name = "Meter(s)"
             changeUnitOutlets(unit1: label1Name, unit2: label2Name)
         }
+        
+        dismissKeyboard()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
