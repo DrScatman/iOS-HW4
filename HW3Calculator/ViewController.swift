@@ -10,20 +10,17 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControllerDelegate {
     
+    var label1Name: String = "Yard(s)"
+    var label2Name: String = "Meter(s)"
+    
     func settingsChangedLength(fromUnits: String, toUnits: String) {
-        label1.text = fromUnits
-        label2.text = toUnits
-        fromInput.placeholder = "Enter length in \(fromUnits)"
-        toOutput.placeholder = "Enter length in Meters \(toUnits)"
-        
-        print(self.label1.text)
+        label1Name = fromUnits
+        label2Name = toUnits
     }
     
     func settingsChangedVolume(fromUnits: String, toUnits: String) {
         label1.text = fromUnits
         label2.text = toUnits
-        fromInput.placeholder = "Enter volume in \(fromUnits)"
-        toOutput.placeholder = "Enter volume in Meters \(toUnits)"
     }
     
     
@@ -33,24 +30,67 @@ class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControl
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
     
+    var isFrom: Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeUnitOutlets(unit1: label1Name, unit2: label2Name)
         
         // Do any additional setup after loading the view.
         let dectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(dectTouch)
         
         fromInput.addTarget(self, action: #selector(UITextFieldDelegate.textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
+        toOutput.addTarget(self, action: #selector(UITextFieldDelegate.textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
+        
+        fromInput.addTarget(self, action: #selector(setFromCalc), for: UIControl.Event.editingDidBegin)
+        toOutput.addTarget(self, action: #selector(setToCalc), for: UIControl.Event.editingDidBegin)
+    }
+    
+    @objc func setFromCalc() {
+        isFrom = true
+    }
+    
+    @objc func setToCalc() {
+        isFrom = false
     }
     
     @IBAction func onCalculatePressed(_ sender: Any) {
-        if (fromInput != nil) {
-            var tempFloat : Float! = Float(fromInput.text!)
-            if (tempFloat != nil) {
-                toOutput.text = "\(tempFloat! * 0.9144)"
+        if ((isFrom && fromInput.text! != "") || (!isFrom && toOutput.text! != "")) {
+            if (isLengthMode()) {
+                let from = LengthUnit(rawValue: label1Name)
+                let to = LengthUnit(rawValue: label2Name)
+            
+                let convKey =  LengthConversionKey(toUnits: (isFrom) ? to! : from!, fromUnits: (isFrom) ? from! : to!)
+                let tempDouble : Double! = Double((isFrom) ? fromInput.text! : toOutput.text!)
+                let toVal = tempDouble * lengthConversionTable[convKey]!
+                if (isFrom) {
+                    toOutput.text = "\(toVal)"
+                }
+                else
+                {
+                    fromInput.text = "\(toVal)"
+                }
+            }
+            else {
+                let from = VolumeUnit(rawValue: label1Name)
+                let to = VolumeUnit(rawValue: label2Name)
+            
+                let convKey =  VolumeConversionKey(toUnits: (isFrom) ? to! : from!, fromUnits: (isFrom) ? from! : to!)
+                let tempDouble : Double! = Double((isFrom) ? fromInput.text! : toOutput.text!)
+                let toVal = tempDouble * volumeConversionTable[convKey]!
+                if (isFrom) {
+                    toOutput.text = "\(toVal)"
+                }
+                else
+                {
+                    fromInput.text = "\(toVal)"
+                }
             }
         }
         
+        label1Name = label1.text!
+        label2Name = label2.text!
         dismissKeyboard()
     }
     
@@ -70,21 +110,43 @@ class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControl
         }
     }
     
+    func isLengthMode() -> Bool {
+        switch (label1Name) {
+            case "Yard(s)":
+                return true
+            case "Meter(s)":
+                return true
+            case "Mile(s)":
+                return true
+            default:
+                return false
+        }
+    }
+    
+    func changeUnitOutlets(unit1: String, unit2: String) {
+        label1.text = unit1
+        label2.text = unit2
+        
+        let measurment: String = (isLengthMode()) ? "length" : "volume"
+        fromInput.placeholder = "Enter \(measurment) in \(label1Name)"
+        toOutput.placeholder = "Enter \(measurment) in \(label2Name)"
+        
+        labelTitle.text = measurment.capitalized(with: Locale.current)
+    }
+    
     @IBAction func onModePressed(_ sender: Any) {
-        if (label1.text == "Yard(s)") {
-            labelTitle.text = "Volume Conversion Calculator"
-            label1.text = "Gallon(s)"
-            label2.text = "Liter(s)"
-            fromInput.placeholder = "Enter volume in Gallons"
-            toOutput.placeholder = "Enter volume in Liters"
+        if (isLengthMode()) {
+            //labelTitle.text = "Volume Conversion Calculator"
+            label1Name = "Gallon(s)"
+            label2Name = "Liter(s)"
+            changeUnitOutlets(unit1: label1Name, unit2: label2Name)
         }
         else
         {
-            labelTitle.text = "Length Conversion Calculator"
-            label1.text = "Yard(s)"
-            label2.text = "Meter(s)"
-            fromInput.placeholder = "Enter length in Yards"
-            toOutput.placeholder = "Enter length in Meters"
+            //labelTitle.text = "Length Conversion Calculator"
+            label1Name = "Yard(s)"
+            label2Name = "Meter(s)"
+            changeUnitOutlets(unit1: label1Name, unit2: label2Name)
         }
     }
     
@@ -92,7 +154,7 @@ class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControl
         let sVC = segue.destination as! SettingsViewController
         sVC.delegate = self
         
-        if (labelTitle.text?.contains("Length") == true) {
+        if (isLengthMode()) {
             sVC.isLengthMode = true
         }
         else

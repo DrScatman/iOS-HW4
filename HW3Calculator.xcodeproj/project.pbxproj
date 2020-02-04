@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		338635C623EA01CA007B8C95 /* UnitsAndModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338635C523EA01CA007B8C95 /* UnitsAndModes.swift */; };
 		33F64B2423E39BC600F4A4FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F64B2323E39BC600F4A4FC /* AppDelegate.swift */; };
 		33F64B2623E39BC600F4A4FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F64B2523E39BC600F4A4FC /* ViewController.swift */; };
 		33F64B2923E39BC600F4A4FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F64B2723E39BC600F4A4FC /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		338635C523EA01CA007B8C95 /* UnitsAndModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsAndModes.swift; sourceTree = "<group>"; };
 		33F64B2023E39BC600F4A4FC /* HW3Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW3Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F64B2323E39BC600F4A4FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33F64B2523E39BC600F4A4FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				33F64B2523E39BC600F4A4FC /* ViewController.swift */,
 				33F64B5123E3ACED00F4A4FC /* DecimalMinusTextField.swift */,
 				33F64B2723E39BC600F4A4FC /* Main.storyboard */,
+				338635C523EA01CA007B8C95 /* UnitsAndModes.swift */,
 				33F64B2A23E39BC600F4A4FC /* Assets.xcassets */,
 				33F64B2C23E39BC600F4A4FC /* LaunchScreen.storyboard */,
 				33F64B2F23E39BC600F4A4FC /* Info.plist */,
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				338635C623EA01CA007B8C95 /* UnitsAndModes.swift in Sources */,
 				33F64B5223E3ACED00F4A4FC /* DecimalMinusTextField.swift in Sources */,
 				33F64B5823E4C87D00F4A4FC /* ModeSwitchVC.swift in Sources */,
 				33F64B2623E39BC600F4A4FC /* ViewController.swift in Sources */,

@@ -23,6 +23,7 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
+    var isTo: Bool = Bool()
     
     internal var delegate: SettingsViewControllerDelegate?
 
@@ -31,52 +32,81 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         if (isLengthMode) {
-            pickerData = ["Meters", "Yards", "Miles"]
+            pickerData = ["Meter(s)", "Yard(s)", "Mile(s)"]
         }
         else {
-            pickerData = ["Gallons", "Liters", "Quarts"]
+            pickerData = ["Gallon(s)", "Liter(s)", "Quart(s)"]
         }
+        picker.delegate = self
+        picker.dataSource = self
         
         button1.setTitle(unitLabel1.text, for: .normal)
         button2.setTitle(unitLabel2.text, for: .normal)
+        
+        let tapFrom = UITapGestureRecognizer(target: self, action: #selector(self.onButton1Pressed(_:)))
+        self.button1.addGestureRecognizer(tapFrom)
+        
+        let tapTo = UITapGestureRecognizer(target: self, action: #selector(self.onButton2Pressed(_:)))
+        self.button2.addGestureRecognizer(tapTo)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.hidePicker))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func hidePicker() {
+        picker.isHidden = true
     }
     
     @IBAction func onButton1Pressed(_ sender: Any) {
+        picker.reloadAllComponents()
         picker.isHidden = false
+        isTo = true
     }
     
     @IBAction func onButton2Pressed(_ sender: Any) {
+        picker.reloadAllComponents()
         picker.isHidden = false;
+        isTo = false
+    }
+    
+    @IBAction func onCancelPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func onSavePressed(_ sender: Any) {
         if let d = delegate {
             d.settingsChangedLength(fromUnits: button1.currentTitle!, toUnits: button2.currentTitle!)
             
-            performSegue(withIdentifier: "return", sender: sender)
+            dismiss(animated: true, completion: nil)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier ==  "save") {
-
-//            let vc = segue.destination as! ViewController
-//            vc.label1.text = button1.currentTitle
-//            vc.label2.text = button2.currentTitle
-
-//            delegate?.settingsChangedLength(fromUnits: button1.currentTitle!, toUnits: button2.currentTitle!)
-
-        }
-    }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in: UIPickerView) -> Int
+    {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+    {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+    {
+        return self.pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        if self.isTo {
+            self.button1.setTitle(self.pickerData[row], for: .normal)
+            unitLabel1.text = self.pickerData[row]
+        } else {
+            self.button2.setTitle(self.pickerData[row], for: .normal)
+            unitLabel2.text = self.pickerData[row]
+        }
+    }
+}
+
