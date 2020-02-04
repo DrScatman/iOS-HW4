@@ -8,10 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControllerDelegate {
-    
-    var label1Name: String = "Yard(s)"
-    var label2Name: String = "Meter(s)"
+class ViewController: UIViewController, UITextFieldDelegate,
+
+    SettingsViewControllerDelegate {
     
     func settingsChangedLength(fromUnits: String, toUnits: String) {
         label1Name = fromUnits
@@ -19,8 +18,8 @@ class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControl
     }
     
     func settingsChangedVolume(fromUnits: String, toUnits: String) {
-        label1.text = fromUnits
-        label2.text = toUnits
+        label1Name = fromUnits
+        label2Name = toUnits
     }
     
     
@@ -30,6 +29,8 @@ class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControl
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var labelTitle: UILabel!
     
+    var label1Name: String = "Yard(s)"
+    var label2Name: String = "Meter(s)"
     var isFrom: Bool = true
     
     override func viewDidLoad() {
@@ -42,17 +43,6 @@ class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControl
         
         fromInput.addTarget(self, action: #selector(UITextFieldDelegate.textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
         toOutput.addTarget(self, action: #selector(UITextFieldDelegate.textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
-        
-        fromInput.addTarget(self, action: #selector(setFromCalc), for: UIControl.Event.editingDidBegin)
-        toOutput.addTarget(self, action: #selector(setToCalc), for: UIControl.Event.editingDidBegin)
-    }
-    
-    @objc func setFromCalc() {
-        isFrom = true
-    }
-    
-    @objc func setToCalc() {
-        isFrom = false
     }
     
     @IBAction func onCalculatePressed(_ sender: Any) {
@@ -107,6 +97,11 @@ class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControl
     @objc func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField.isEqual(fromInput)) {
             toOutput.text = ""
+            isFrom = true
+        }
+        else {
+            fromInput.text = ""
+            isFrom = false
         }
     }
     
@@ -151,7 +146,7 @@ class ViewController: UIViewController, UITextFieldDelegate, SettingsViewControl
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let sVC = segue.destination as! SettingsViewController
+        let sVC = segue.destination.children[0] as! SettingsViewController
         sVC.delegate = self
         
         if (isLengthMode()) {

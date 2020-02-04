@@ -102,10 +102,8 @@ extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate 
     {
         if self.isTo {
             self.button1.setTitle(self.pickerData[row], for: .normal)
-            unitLabel1.text = self.pickerData[row]
         } else {
             self.button2.setTitle(self.pickerData[row], for: .normal)
-            unitLabel2.text = self.pickerData[row]
         }
     }
 }
