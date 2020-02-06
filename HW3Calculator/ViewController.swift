@@ -33,9 +33,12 @@ class ViewController: UIViewController, UITextFieldDelegate,
     var label2Name: String = "Meter(s)"
     var isFrom: Bool = true
     
+    override func viewWillAppear(_ animated: Bool) {
+        changeUnitOutlets(unit1: label1Name, unit2: label2Name)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        changeUnitOutlets(unit1: label1Name, unit2: label2Name)
         
         // Do any additional setup after loading the view.
         let dectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
@@ -128,6 +131,7 @@ class ViewController: UIViewController, UITextFieldDelegate,
         toOutput.placeholder = "Enter \(measurment) in \(label2Name)"
         
         labelTitle.text = measurment.capitalized(with: Locale.current)
+        labelTitle.text?.append(" Conversion Calculator")
     }
     
     @IBAction func onModePressed(_ sender: Any) {
