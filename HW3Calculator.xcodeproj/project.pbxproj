@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		338635C623EA01CA007B8C95 /* UnitsAndModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338635C523EA01CA007B8C95 /* UnitsAndModes.swift */; };
+		33CF0C4C23F6080000F73D7A /* ConversionCalcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CF0C4B23F6080000F73D7A /* ConversionCalcTextField.swift */; };
+		33CF0C4E23F614D100F73D7A /* ConversionCalcLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CF0C4D23F614D100F73D7A /* ConversionCalcLabel.swift */; };
 		33F64B2423E39BC600F4A4FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F64B2323E39BC600F4A4FC /* AppDelegate.swift */; };
 		33F64B2623E39BC600F4A4FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F64B2523E39BC600F4A4FC /* ViewController.swift */; };
 		33F64B2923E39BC600F4A4FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33F64B2723E39BC600F4A4FC /* Main.storyboard */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		338635C523EA01CA007B8C95 /* UnitsAndModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsAndModes.swift; sourceTree = "<group>"; };
+		33CF0C4B23F6080000F73D7A /* ConversionCalcTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCalcTextField.swift; sourceTree = "<group>"; };
+		33CF0C4D23F614D100F73D7A /* ConversionCalcLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCalcLabel.swift; sourceTree = "<group>"; };
 		33F64B2023E39BC600F4A4FC /* HW3Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW3Calculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33F64B2323E39BC600F4A4FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33F64B2523E39BC600F4A4FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,8 @@
 				33F64B2F23E39BC600F4A4FC /* Info.plist */,
 				33F64B5723E4C87D00F4A4FC /* ModeSwitchVC.swift */,
 				33F64B5B23E4D08600F4A4FC /* SettingsViewController.swift */,
+				33CF0C4B23F6080000F73D7A /* ConversionCalcTextField.swift */,
+				33CF0C4D23F614D100F73D7A /* ConversionCalcLabel.swift */,
 			);
 			path = HW3Calculator;
 			sourceTree = "<group>";
@@ -271,9 +277,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				338635C623EA01CA007B8C95 /* UnitsAndModes.swift in Sources */,
+				33CF0C4C23F6080000F73D7A /* ConversionCalcTextField.swift in Sources */,
 				33F64B5223E3ACED00F4A4FC /* DecimalMinusTextField.swift in Sources */,
 				33F64B5823E4C87D00F4A4FC /* ModeSwitchVC.swift in Sources */,
 				33F64B2623E39BC600F4A4FC /* ViewController.swift in Sources */,
+				33CF0C4E23F614D100F73D7A /* ConversionCalcLabel.swift in Sources */,
 				33F64B5C23E4D08600F4A4FC /* SettingsViewController.swift in Sources */,
 				33F64B2423E39BC600F4A4FC /* AppDelegate.swift in Sources */,
 			);

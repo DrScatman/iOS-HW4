@@ -17,6 +17,8 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
+    <key>UIViewControllerBasedStatusBarAppearance</key>
+    <true/>
 	<string>1</string>
 </dict>
 </plist>

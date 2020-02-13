@@ -9,7 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate,
-
     SettingsViewControllerDelegate {
     
     func settingsChangedLength(fromUnits: String, toUnits: String) {
