@@ -51,6 +51,8 @@ class SettingsViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.hidePicker))
         self.view.addGestureRecognizer(tap)
+        
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     @objc func hidePicker() {
@@ -105,6 +107,10 @@ extension SettingsViewController : UIPickerViewDataSource, UIPickerViewDelegate 
         } else {
             self.button2.setTitle(self.pickerData[row], for: .normal)
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 

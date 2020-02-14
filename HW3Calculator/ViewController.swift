@@ -38,13 +38,15 @@ class ViewController: UIViewController, UITextFieldDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
         let dectTouch = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard))
         self.view.addGestureRecognizer(dectTouch)
         
         fromInput.addTarget(self, action: #selector(UITextFieldDelegate.textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
         toOutput.addTarget(self, action: #selector(UITextFieldDelegate.textFieldDidBeginEditing(_:)), for: UIControl.Event.editingDidBegin)
+        
+        self.view.backgroundColor = BACKGROUND_COLOR
+        self.setNeedsStatusBarAppearanceUpdate()
     }
     
     @IBAction func onCalculatePressed(_ sender: Any) {
@@ -165,6 +167,10 @@ class ViewController: UIViewController, UITextFieldDelegate,
         
         sVC.unitLabel1 = label1
         sVC.unitLabel2 = label2
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 }
 

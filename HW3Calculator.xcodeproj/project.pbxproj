@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		332997C923F74A39001F8B93 /* ConversionCalcButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332997C823F74A39001F8B93 /* ConversionCalcButton.swift */; };
 		338635C623EA01CA007B8C95 /* UnitsAndModes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338635C523EA01CA007B8C95 /* UnitsAndModes.swift */; };
 		33CF0C4C23F6080000F73D7A /* ConversionCalcTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CF0C4B23F6080000F73D7A /* ConversionCalcTextField.swift */; };
 		33CF0C4E23F614D100F73D7A /* ConversionCalcLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33CF0C4D23F614D100F73D7A /* ConversionCalcLabel.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		332997C823F74A39001F8B93 /* ConversionCalcButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCalcButton.swift; sourceTree = "<group>"; };
 		338635C523EA01CA007B8C95 /* UnitsAndModes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitsAndModes.swift; sourceTree = "<group>"; };
 		33CF0C4B23F6080000F73D7A /* ConversionCalcTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCalcTextField.swift; sourceTree = "<group>"; };
 		33CF0C4D23F614D100F73D7A /* ConversionCalcLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionCalcLabel.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				33F64B5B23E4D08600F4A4FC /* SettingsViewController.swift */,
 				33CF0C4B23F6080000F73D7A /* ConversionCalcTextField.swift */,
 				33CF0C4D23F614D100F73D7A /* ConversionCalcLabel.swift */,
+				332997C823F74A39001F8B93 /* ConversionCalcButton.swift */,
 			);
 			path = HW3Calculator;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				33CF0C4C23F6080000F73D7A /* ConversionCalcTextField.swift in Sources */,
 				33F64B5223E3ACED00F4A4FC /* DecimalMinusTextField.swift in Sources */,
 				33F64B5823E4C87D00F4A4FC /* ModeSwitchVC.swift in Sources */,
+				332997C923F74A39001F8B93 /* ConversionCalcButton.swift in Sources */,
 				33F64B2623E39BC600F4A4FC /* ViewController.swift in Sources */,
 				33CF0C4E23F614D100F73D7A /* ConversionCalcLabel.swift in Sources */,
 				33F64B5C23E4D08600F4A4FC /* SettingsViewController.swift in Sources */,

@@ -13,7 +13,7 @@ import UIKit
     particular question/answer thread:
         http://stackoverflow.com/questions/9613109/uikeyboardtypedecimalpad-with-negative-numbers
 */
-class DecimalMinusTextField: ConversionCalcTextField {
+class DecimalMinusTextField: UITextField {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

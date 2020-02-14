@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversionCalcTextField: UITextField {
+class ConversionCalcTextField: DecimalMinusTextField {
 
     override func awakeFromNib() {
         self.textColor = FOREGROUND_COLOR
