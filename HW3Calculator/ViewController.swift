@@ -130,6 +130,8 @@ class ViewController: UIViewController, UITextFieldDelegate,
         let measurment: String = (isLengthMode()) ? "length" : "volume"
         fromInput.placeholder = "Enter \(measurment) in \(label1Name)"
         toOutput.placeholder = "Enter \(measurment) in \(label2Name)"
+        setPlaceholderColor(textField: fromInput)
+        setPlaceholderColor(textField: toOutput)
         
         labelTitle.text = measurment.capitalized(with: Locale.current)
         labelTitle.text?.append(" Conversion Calculator")
@@ -171,6 +173,13 @@ class ViewController: UIViewController, UITextFieldDelegate,
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    func setPlaceholderColor(textField: UITextField) {
+        guard let ph = textField.placeholder else {
+            return
+        }
+        textField.attributedPlaceholder = NSAttributedString(string: ph, attributes: [NSAttributedString.Key.foregroundColor : FOREGROUND_COLOR])
     }
 }
 
